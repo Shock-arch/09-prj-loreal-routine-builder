@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,9 +22,9 @@
         <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
         <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
       </header>
-
-      <!-- Category Filter -->
-      <div class="search-section">
+      <!-- Category Filter + Product Search -->
+       <div class="search-section">
+        
         <select id="categoryFilter">
           <option value="" disabled selected>Choose a Category</option>
           <option value="cleanser">Cleansers</option>
@@ -35,8 +35,17 @@
           <option value="hair styling">Hair Styling</option>
           <option value="men's grooming">Men's Grooming</option>
           <option value="suncare">Suncare</option>
+          <option value="skincare">Skincare</option>
           <option value="fragrance">Fragrance</option>
         </select>
+        
+        <input
+        id="productSearch"
+        type="search"
+        placeholder="Search products..."
+        autocomplete="off"
+        />
+      
       </div>
 
       <!-- Products Grid -->
@@ -46,8 +55,11 @@
       <div class="selected-products">
         <h2>Selected Products</h2>
         <div id="selectedProductsList"></div>
-        <button id="generateRoutine" class="generate-btn">
+        <button id="generateRoutine" class="generate-btn" type="button">
           <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
+        </button>
+        <button id="clearSelections" class="clear-btn">
+          Clear All
         </button>
       </div>
 
@@ -85,6 +97,7 @@
       </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

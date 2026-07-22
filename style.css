@@ -1,255 +1,472 @@
-/* —— basic reset —— */
+/* ==========================
+   RESET
+========================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* —— body + fonts —— */
+
+/* ==========================
+   GLOBAL
+========================== */
+
 body {
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-family:
+    "Montserrat",
+    "Noto Sans Arabic",
+    "Noto Sans Hebrew",
+    Arial,
+    sans-serif;
   color: #333;
+  background: #fff;
   display: flex;
   justify-content: center;
+  text-align: start;
 }
 
 .page-wrapper {
-  width: 90%;
-  max-width: 900px;
+  width: 92%;
+  max-width: 1200px;
 }
 
-/* header */
+
+/* ==========================
+   HEADER
+========================== */
+
 .site-header {
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 10px;
+  padding: 50px 0 25px;
 }
 
 .logo {
-  width: 250px;
-  margin-bottom: 15px;
+  width: 230px;
+  margin-bottom: 18px;
 }
 
 .site-title {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: .5px;
 }
 
-/* category filter */
+/* ==========================
+   CATEGORY + SEARCH
+========================== */
+
 .search-section {
-  margin: 30px 0;
+  margin: 35px 0;
   display: flex;
+  gap: 15px;
+  align-items: center;
+  direction: inherit;
+}
+
+.search-section select,
+.search-section input {
+  flex: 1;
+  width: 100%;
+  padding: 16px;
+  font-size: 17px;
+  border: 2px solid #e3a535;
+  border-radius: 12px;
+  background: white;
+  font-family: inherit;
+  text-align:start;
 }
 
 .search-section select {
-  width: 100%;
-  padding: 16px;
-  font-size: 18px;
-  border: 2px solid #000;
-  border-radius: 8px;
   cursor: pointer;
-  background-color: white;
   font-weight: 500;
 }
 
-.search-section select:focus {
+.search-section select:focus,
+.search-section input:focus {
   outline: none;
-  border-color: #666;
+  border-color: #ff003b;
 }
 
-/* chat section */
-.chatbox {
-  margin: 40px 0;
-  border: 2px solid #000;
-  border-radius: 8px;
-  padding: 26px;
-}
+/* ==========================
+   PRODUCTS GRID
+========================== */
 
-.chatbox h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.chat-window {
-  padding: 20px;
-  font-size: 18px;
-  line-height: 1.5;
-  height: 250px;
-  overflow-y: auto;
-  background: #fafafa;
-  margin-bottom: 20px;
-}
-
-/* placeholder message */
-.placeholder-message {
-  width: 100%;
-  text-align: center;
-  padding: 40px;
-  color: #666;
-  font-size: 18px;
-}
-
-/* input row */
-.chat-form {
-  display: flex;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.chat-form input {
-  flex: 1;
-  padding: 12px;
-  font-size: 18px;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  background: transparent;
-}
-
-.chat-form input:focus {
-  outline: none;
-  border-bottom-color: #000;
-}
-
-.chat-form button {
-  font-size: 18px;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 12px;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.chat-form button:hover {
-  background: #666666;
-}
-
-.chat-form button:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-}
-
-/* visually hidden */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* footer */
-.site-footer {
-  margin: 60px 0 40px;
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-}
-
-.site-footer nav {
-  margin-top: 12px;
-}
-
-.site-footer a {
-  margin: 0 8px;
-  color: #000;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  color: #666666;
-}
-
-/* products grid */
 .products-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   margin: 30px 0;
 }
 
+
 .product-card {
-  flex: 0 1 calc(33.333% - 14px);
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 4px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 20px;
   display: flex;
-  gap: 15px;
-  min-height: 160px;
+  flex-direction: column;
+  align-items: center;
+  text-align: start;
+  cursor: pointer;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+
+.product-card.selected {
+  border: 2px solid #ff003b;
+  box-shadow:
+    0 0 0 3px rgba(227,165,53,.25);
+  transform: translateY(-5px);
 }
 
 .product-card img {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
-  flex-shrink: 0;
+  margin-bottom: 15px;
 }
 
-.product-card .product-info {
-  flex: 1;
+.product-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 110px;
+  align-items:flex-start;
 }
 
 .product-card h3 {
   font-size: 16px;
+  line-height: 1.4;
   margin-bottom: 8px;
 }
 
 .product-card p {
-  font-size: 14px;
   color: #666;
+  font-size: 14px;
 }
 
-/* selected products */
+/* ==========================
+   DESCRIPTION
+========================== */
+
+.description-toggle {
+  margin-top: 14px;
+  padding: 7px 15px;
+  border:
+    1px solid #e3a535;
+  border-radius: 20px;
+  background:white;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.description-toggle:hover {
+  background:#e3a535;
+  color:white;
+}
+
+.product-description {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+}
+
+.product-description.show {
+  max-height:200px;
+  margin-top:15px;
+}
+
+/* ==========================
+   SELECTED PRODUCTS
+========================== */
+
 .selected-products {
-  margin: 40px 0;
-  padding: 20px;
-  border: 2px solid #000;
-  border-radius: 8px;
+  margin:45px 0;
+  padding:25px;
+  border:
+    2px solid #e3a535;
+  border-radius:14px;
+  background:#fffdf8;
+  display: flex;
+  flex-direction: column;
 }
 
 .selected-products h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom:20px;
+}
+
+.clear-btn {
+  margin-top: 20px;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #ff003b;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 
+    background .25s ease,
+    transform .25s ease;
+}
+
+.clear-btn:hover {
+  background: #666;
+  transform: translateY(-2px);
+}
+
+.clear-btn:focus {
+  outline: 2px solid #e3a535;
+  outline-offset: 3px;
 }
 
 #selectedProductsList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom: 10px;
 }
 
+#selectedProductsList li {
+  list-style:none;
+  background:#fff;
+  border:1px solid #ddd;
+  padding:10px 14px;
+  border-radius:30px;
+  display:flex;
+  align-items:center;
+}
+
+/* remove button */
+.remove-btn {
+  margin-inline-start:10px;
+  width:24px;
+  height:24px;
+  border:none;
+  border-radius:50%;
+  background:#ff003b;
+  color:white;
+  cursor:pointer;
+}
+
+.remove-btn:hover {
+  background:#666;
+}
+
+/* ==========================
+   GENERATE BUTTON
+========================== */
+
 .generate-btn {
-  width: 100%;
-  margin-top: 20px;
-  padding: 16px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  background: #000;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+  width:100%;
+  margin-top:25px;
+  padding:17px;
+  font-size:18px;
+  font-weight:600;
+  color:white;
+  background:#ff003b;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.3s;
 }
 
 .generate-btn:hover {
-  background: #666;
+  background:#666;
 }
 
-.generate-btn i {
-  margin-right: 8px;
+/* ==========================
+   CHAT
+========================== */
+
+.chatbox {
+  margin:50px 0;
+  padding:30px;
+  border:
+    2px solid #e3a535;
+  border-radius:14px;
+}
+
+.chatbox h2 {
+  margin-bottom:20px;
+}
+
+.chat-window {
+  height:320px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  padding:20px;
+  background:#fafafa;
+  border-radius:12px;
+  line-height:1.6;
+  text-align:start;
+}
+
+/* messages */
+
+.assistant-message,
+.user-message {
+  padding:12px 16px;
+  margin-bottom:12px;
+  border-radius:12px;
+}
+
+.assistant-message {
+  background:white;
+  border-inline-start:4px solid #e3a535;
+  padding:18px;
+  border-radius:12px;
+  overflow-wrap:anywhere;
+}
+
+
+.assistant-message h2,
+.assistant-message h3 {
+  margin:18px 0 10px;
+}
+
+
+.assistant-message p {
+  margin-bottom:12px;
+}
+
+
+.assistant-message ul,
+.assistant-message ol {
+  margin:12px 0 12px 25px;
+}
+
+
+.assistant-message a {
+  color:#ff003b;
+  font-weight:600;
+}
+
+.user-message {
+  background:#ff003b;
+  color:white;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin-inline-start:auto;
+}
+
+/* input */
+
+.chat-form {
+  display:flex;
+  gap:12px;
+  margin-top:20px;
+}
+
+.chat-form input {
+  flex:1;
+  padding:14px;
+  border:none;
+  border-bottom:
+    2px solid #ccc;
+  font-size:16px;
+}
+
+.chat-form input:focus {
+  outline:none;
+  border-color:#ff003b;
+}
+
+.chat-form button {
+  width:50px;
+  height:50px;
+  border:none;
+  background:#ff003b;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.chat-form button:hover {
+  background:#666;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+.site-footer {
+  margin:60px 0 40px;
+  text-align:center;
+  color:#666;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+  .products-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .products-grid {
+    grid-template-columns:1fr;
+  }
+
+  .site-title {
+    font-size:22px;
+  }
+
+  .chatbox {
+    padding:20px;
+  }
+
+   .search-section {
+    flex-direction: column;
+  }
+
+  .search-section select,
+  .search-section input {
+    width:100%;
+  }
+}
+
+/* accessibility */
+
+.visually-hidden {
+  position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+}
+
+/* ==========================
+   RTL LANGUAGE SUPPORT
+========================== */
+
+html[dir="rtl"] {
+  text-align:right;
+}
+
+html[dir="rtl"] .product-card,
+html[dir="rtl"] .chat-window,
+html[dir="rtl"] .assistant-message,
+html[dir="rtl"] .user-message,
+html[dir="rtl"] input,
+html[dir="rtl"] select {
+  text-align:right;
+}
+
+html[dir="rtl"] .product-info {
+  align-items:flex-end;
 }
