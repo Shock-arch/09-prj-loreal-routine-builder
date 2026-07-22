@@ -58,24 +58,23 @@ body {
 ========================== */
 
 .search-section {
-  margin: 35px 0;
   display: flex;
   gap: 15px;
+  width: 100%;
   align-items: center;
-  direction: inherit;
 }
+
 
 .search-section select,
 .search-section input {
   flex: 1;
-  width: 100%;
+  min-width: 0;
   padding: 16px;
   font-size: 17px;
   border: 2px solid #e3a535;
   border-radius: 12px;
   background: white;
   font-family: inherit;
-  text-align:start;
 }
 
 .search-section select {
@@ -87,6 +86,10 @@ body {
 .search-section input:focus {
   outline: none;
   border-color: #ff003b;
+}
+
+#categoryFilter {
+  width:auto
 }
 
 /* ==========================
